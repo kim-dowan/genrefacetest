@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167481091-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-167481091-1');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>음악장르테스트</title>
+    <meta name="description" content="만약 내가 가수라면 어떤 장르의 음악이 어울릴까? 얼굴로 알아보는 내게 맞는 장르테스트">
+    <meta name="keywords" content="얼굴상테스트, 얼굴상, 심심풀이테스트, 심심풀이, 음악장르, 인공지능, 음악장르테스트, 장르테스트, 테스트" />
+    <meta name="distribution" content="global" />
+    <meta name="rating" content="general" />
+    <meta name="url" content="https://genreface.site" />
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="음악장르 테스트">
+    <meta property="og:description" content="내겐 어떤 장르의 음악이 어울릴까? 얼굴로 알아보는 음악장르 테스트">
+    <meta name="title" content="음악장르 테스트">
+    <meta name="subject" content="얼굴로 나와 어울리는 장르를 찾아보세요!">
+    <meta name="author" content="김도완">
+    <meta property="og:type" content="website" />
+    <!--<meta property="og:image" content="https://genreface.site/">-->
+    <meta property="og:url" content="http://genreface.site">
+    <link rel="shortcut icon" href="css/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="css/images/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Jua|Nanum+Myeongjo|Nanum+Pen+Script|Noto+Serif+KR|Song+Myung|Stylish|Yeon+Sung&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Black+Han+Sans|Lato|Lobster|Merriweather|Oswald|Shadows+Into+Light&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style_pc.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style_toggle.css">
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ecb8d20cbeefe0c"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div id="top">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand m-2" href="index.html">음악장르테스트</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse ml-2" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">음악장르테스트<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/kim-dowan/genretest" target="_blank">소스코드 보기</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="info.html">개발자 정보</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div id="banner">
+        <div class="title text-center pt-5">
+            <h1>음악장르테스트</h1>
+        </div>
+        <div class="subtitle text-center">
+            <div>나는 어떤 음악이 어울릴까?
+                <div class="genre">
+                    <ul class="genre_list">
+                        <li>발라드?</li>
+                        <li>댄스음악?</li>
+                        <li>힙합?</li>
+                        <li>인디음악?</li>
+                        <li>R&amp;B?</li>
+                        <li>락?</li>
+                        <li>트로트?</li>
+                        <li>발라드?</li>
+                    </ul>
+                </div><br>AI로 보는 얼굴상 테스트</div>
+
+        </div>
+        <div id="gender_div">
+            <div>
+                <p class="gender_title mb-2">성별을 선택해주세요</p>
+            </div>
+            <p>남자</p>
+            <label for="gender" class="switch">
+                <input type="checkbox" id="gender" onclick="gender_check(this);">
+                <span class="slider round"></span>
+            </label>
+            <p>여자</p>
+        </div>
+    </div>
+
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <div class="file-upload">
+        <div class="image-upload-wrap">
+            <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+            <div class="drag-text">
+                <h3>사진을 올려놓거나 클릭해서 업로드해주세요.</h3>
+            </div>
+        </div>
+        <div class="file-upload-content">
+            <img class="file-upload-image" id="face-image" src="#" alt="your image" />
+            <div id="loading" class="animated bounce">
+                <div class="spinner-border" role="status">
+                </div>
+                <p class="text-center mb-5">Loading...<br>인공지능이 당신의 얼굴상을 분석중입니다.</p>
+            </div>
+            <p id="result-title"></p>
+            <p id="result-sub"></p>
+            <p id="result-ex"></p>
+            <div id="label-container"></div>
+
+            <!-- Go to www.addthis.com/dashboard to customize your tools -->
+            <div class="addthis_inline_share_toolbox"></div>
+
+            <div class="image-title-wrap">
+                <button type="button" onclick="location.href='index.html'" class="remove-image">다른 사진으로 다시하기</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="bottom">
+        <div class="ad">
+            <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-vf9qs8qqnpdi" data-ad-width="320" data-ad-height="100"></ins><ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-vey6j6qru4wx" data-ad-width="320" data-ad-height="50"></ins>
+        </div>
+        <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+        <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+        <div class="link text-right">
+            <a class="link_a" href="https://www.youtube.com/channel/UCQNE2JmbasNYbjGAcuBiRRg" target="_blank">제작도움 : 조코딩 유튜브</a>
+        </div>
+        <div id="disqus_thread"></div>
+        <script>
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document,
+                    s = d.createElement('script');
+                s.src = 'https://eumagjangreuteseuteu.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+    <script type="text/javascript">
+        // More API functions here:
+        // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+
+        // the link to your model provided by Teachable Machine export panel
+        let URL = "https://teachablemachine.withgoogle.com/models/Sh9cxEm5n/";
+        const URL_male = "https://teachablemachine.withgoogle.com/models/Sh9cxEm5n/";
+        const URL_female = "https://teachablemachine.withgoogle.com/models/hcdjmWZ6l/";
+
+        var gender = document.getElementById("gender").checked;
+        // 토글 스위치
+        URL = URL_male;
+
+        function gender_check(element) {
+            console.log(element.checked);
+            switch (element.checked) {
+                case false:
+                    URL = URL_male;
+                    console.log(URL);
+                    break;
+                default:
+                    URL = URL_female;
+                    console.log(URL);
+                    break;
+            }
+        }
+
+        let model, labelContainer, maxPredictions;
+
+        // Load the image model and setup the webcam
+        async function init() {
+            const modelURL = URL + "model.json";
+            const metadataURL = URL + "metadata.json";
+            model = await tmImage.load(modelURL, metadataURL);
+            maxPredictions = model.getTotalClasses();
+            labelContainer = document.getElementById("label-container");
+            for (let i = 0; i < maxPredictions; i++) {
+                labelContainer.appendChild(document.createElement("div"));
+
+            }
+        }
+        // run the webcam image through the image model
+        async function predict() {
+            // predict can take in an image, video or canvas html element
+            var image = document.getElementById("face-image")
+            const prediction = await model.predict(image, false);
+            prediction.sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability));
+            document.getElementById("loading").style.display = "none";
+            var resultTitle, resultExplain, resultCelub;
+            console.log(gender);
+            if (document.getElementById("gender").checked) {
+                switch (prediction[0].className) {
+                    case "ballad":
+                        resultTitle = "마음을 울리는 감성적인 발라드";
+                        resultExplain = "<br>당신은 사랑과 이별의 감정을 짙은 호소력과 가창력으로 표현하여 듣는 사람들에게 감동을 전달하는 감성 발라더상이다!!";
+                        resultCelub = "<br>유명 발라드 가수 : 거미, 벤, 백지영, 아이유, 이선희";
+                        document.getElementById("result-title").className = "ballad-title"
+                        document.getElementById("result-ex").className = "ballad-title"
+                        break;
+
+                    case "dance":
+                        resultTitle = "역동적이고 흥이 넘치는 댄스음악";
+                        resultExplain = "<br>당신은 항상 흥이 넘치고 중독성있고 신나는 노래와 멋진 춤으로 사람들에게 기쁨을 주는 댄서상이다!!";
+                        resultCelub = "<br>유명 댄스가수 : 보아, 선미, 이효리, 청하, 김완선";
+                        document.getElementById("result-title").className = "dance-title"
+                        document.getElementById("result-ex").className = "dance-title"
+                        break;
+
+                    case "hiphop":
+                        resultTitle = "스웩 넘치는 힙합";
+                        resultExplain = "<br>당신은 개성넘치고 귀에 때려박히는 가사와 다이나믹한 비트로 사람들의 귀를 즐겁게하는 래퍼상이다!!";
+                        resultCelub = "<br>유명 래퍼 : 윤미래, 이영지, 재키와이, 치타, 애쉬비";
+                        document.getElementById("result-title").className = "hiphop-title";
+                        document.getElementById("result-ex").className = "hiphop-title";
+                        break;
+
+                    case "inde":
+                        resultTitle = "개성넘치고 매력적인 인디음악";
+                        resultExplain = "<br>당신은 남들과는 다른 개성있는 가사와 멜로디로 듣는 사람들로 하여금 다양한 감정을 느끼게 하는 인디가수상이다!!";
+                        resultCelub = "<br>유명 인디가수 : 체리필터, 선우정아, 스텔라장, 안다은";
+                        document.getElementById("result-title").className = "inde-title";
+                        document.getElementById("result-ex").className = "inde-title";
+                        break;
+
+                    case "r&b":
+                        resultTitle = "강렬하고 소울넘치는 R&B";
+                        resultExplain = "<br>당신은 자신만의 소울로 멜로디와 가사를 뇌리에 새기는 사람들에게 주목받는 R&B가수상이다!!";
+                        resultCelub = "<br>유명 R&B가수 : 백예린, 이지영(빅마마), 이하이, 정인";
+                        document.getElementById("result-title").className = "rnb-title";
+                        document.getElementById("result-ex").className = "rnb-title";
+                        break;
+
+                    case "rock":
+                        resultTitle = "락스피릿 넘치는 락";
+                        resultExplain = "<br>당신은 실력좋은 밴드와 완벽한 하모니를 이루며 잔잔한 음악 또는 강렬한 음악로 듣는 사람들을 신나게 만드는 락커상이다!!";
+                        resultCelub = "<br>유명 락커 : 이은미, 김수희, 윤하, 조유진, 황소윤";
+                        document.getElementById("result-title").className = "rock-title";
+                        document.getElementById("result-ex").className = "rock-title";
+                        break;
+
+                    case "teuroteu":
+                        resultTitle = "듣기만 해도 흥이나는 트로트";
+                        resultExplain = "<br>당신은 구성진 멜로디와 가사로 때론 흥겨운 때론 감성적인 음악으로 남녀노소 모두를 매료시키는 트로트가수상이다!!";
+                        resultCelub = "<br>유명 트로트 가수 : 송가인, 장윤정, 홍진영, 김연자, 주현미";
+                        document.getElementById("result-title").className = "teuroteu-title";
+                        document.getElementById("result-ex").className = "teuroteu-title";
+                        break;
+
+                    default:
+                        resultTitle = "알수없음";
+                        resultExplain = "";
+                        resultCelub = "";
+                }
+
+            } else {
+                switch (prediction[0].className) {
+                    case "ballad":
+                        resultTitle = "마음을 울리는 감성적인 발라드";
+                        resultExplain = "<br>당신은 사랑과 이별의 감정을 짙은 호소력과 가창력으로 표현하여 듣는 사람들에게 감동을 전달하는 감성 발라더상이다!!";
+                        resultCelub = "<br>유명 발라드 가수 : 박효신, 이적, 김동률, 성시경, 신승훈, 윤종신, 임재범";
+                        document.getElementById("result-title").className = "ballad-title";
+                        document.getElementById("result-ex").className = "ballad-title";
+                        break;
+
+                    case "dance":
+                        resultTitle = "활발하고 끼가 넘치는 댄스음악";
+                        resultExplain = "<br>당신은 항상 흥이 넘치고 중독성있고 신나는 노래와 멋진 춤으로 사람들에게 기쁨을 주는 댄서상이다!!";
+                        resultCelub = "<br>유명 댄스가수(아이돌) : 방탄소년단, 싸이, 쿨, 코요태";
+                        document.getElementById("result-title").className = "dance-title";
+                        document.getElementById("result-ex").className = "dance-title";
+                        break;
+
+                    case "hiphop":
+                        resultTitle = "스웩 넘치는 힙합";
+                        resultExplain = "<br>당신은 개성넘치고 귀에 때려박히는 가사와 다이나믹한 비트로 사람들의 귀를 즐겁게하는 래퍼상이다!!";
+                        resultCelub = "<br>유명 래퍼 : 염따, 산이, 창모, 더콰이엇, 김하온";
+                        document.getElementById("result-title").className = "hiphop-title";
+                        document.getElementById("result-ex").className = "hiphop-title";
+                        break;
+
+                    case "inde":
+                        resultTitle = "개성넘치고 매력적인 인디음악";
+                        resultExplain = "<br>당신은 남들과는 다른 개성있는 가사와 멜로디로 듣는 사람들로 하여금 다양한 감정을 느끼게 하는 인디가수상이다!!";
+                        resultCelub = "<br>유명 인디가수 : 십센치, 어반자카파, 장기하, 넬";
+                        document.getElementById("result-title").className = "inde-title";
+                        document.getElementById("result-ex").className = "inde-title";
+                        break;
+
+                    case "r&b":
+                        resultTitle = "강렬하고 소울넘치는 R&B";
+                        resultExplain = "<br>당신은 자신만의 소울로 멜로디와 가사를 뇌리에 새기는 사람들에게 주목받는 R&B가수상이다!!";
+                        resultCelub = "<br>유명 알앤비 가수 : 크러쉬, 김범수, 나얼, 바비킴, 박진영";
+                        document.getElementById("result-title").className = "rnb-title";
+                        document.getElementById("result-ex").className = "rnb-title";
+                        break;
+
+                    case "rock":
+                        resultTitle = "락스피릿 넘치는 락";
+                        resultExplain = "<br>당신은 실력좋은 밴드와 완벽한 하모니를 이루며 잔잔한 음악 또는 강렬한 음악로 듣는 사람들을 신나게 만드는 락커상이다!!";
+                        resultCelub = "<br>유명 락커 : 김경호, 박완규, 윤도현, 하현우, 신해철, 김종서";
+                        document.getElementById("result-title").className = "rock-title";
+                        document.getElementById("result-ex").className = "rock-title";
+                        break;
+
+                    case "teuroteu":
+                        resultTitle = "듣기만해도 흥이나는 트로트";
+                        resultExplain = "<br>당신은 구성진 멜로디와 가사로 때론 흥겨운 때론 감성적인 음악으로 남녀노소 모두를 매료시키는 트로트가수상이다!!";
+                        resultCelub = "<br>유명 트로트 가수 : 임영웅, 이찬원, 영탁, 나훈아, 박상철";
+                        document.getElementById("result-title").className = "teuroteu-title";
+                        document.getElementById("result-ex").className = "teuroteu-title";
+                        break;
+
+                    default:
+                        resultTitle = "알수없음";
+                        resultExplain = "";
+                        resultCelub = "";
+                        break;
+                }
+            }
+            var resultlabel;
+            document.getElementById("result-title").innerHTML = resultTitle;
+            document.getElementById("result-sub").innerHTML = resultExplain;
+            document.getElementById("result-ex").innerHTML = resultCelub;
+            for (let i = 0; i < maxPredictions; i++) {
+                switch (prediction[i].className) {
+                    case "ballad":
+                        resultlabel = "발라드";
+                        break;
+                    case "dance":
+                        resultlabel = "댄스음악";
+                        break;
+                    case "hiphop":
+                        resultlabel = "힙합";
+                        break;
+                    case "inde":
+                        resultlabel = "인디음악";
+                        break;
+                    case "r&b":
+                        resultlabel = "알앤비";
+                        break;
+                    case "rock":
+                        resultlabel = "락";
+                        break;
+                    case "teuroteu":
+                        resultlabel = "트로트";
+                        break;
+                }
+                const classPrediction =
+                    "<p style='width:15%; display: inline-block;' class='" + prediction[i].className + " result_p'>" + resultlabel + "</p>" + "<div class='" + prediction[i].className + "-bar rnb' style='height: 25px; width: " + Math.floor(prediction[i].probability.toFixed(2) * 80) + "%" + "; display: inline-block; margin-left: 10px; min-width: 1%; border-radius: 10px; margin-bottom: 5px; color: black; text-align: center;'>" + Math.floor(prediction[i].probability.toFixed(2) * 100) + '%' + "</div>";
+                labelContainer.childNodes[i].innerHTML = classPrediction;
+            }
+        }
+    </script>
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('.image-upload-wrap').hide();
+
+                    $('.file-upload-image').attr('src', e.target.result);
+                    $('.file-upload-content').show();
+
+                    $('.image-title').html(input.files[0].name);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+                init().then(function() {
+                    predict();
+                })
+            } else {
+                removeUpload();
+            }
+        }
+
+        function removeUpload() {
+            $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+            $('.file-upload-content').hide();
+            $('.image-upload-wrap').show();
+            document.getElementById("loading").style.display = "block";
+        }
+        $('.image-upload-wrap').bind('dragover', function() {
+            $('.image-upload-wrap').addClass('image-dropping');
+        });
+        $('.image-upload-wrap').bind('dragleave', function() {
+            $('.image-upload-wrap').removeClass('image-dropping');
+
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script id="dsq-count-scr" src="//eumagjangreuteseuteu.disqus.com/count.js" async></script>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ecb8d20cbeefe0c"></script>
+    <script>
+
+    </script>
+</body>
+<!--Copyright (c) 2020 by Aaron Vanston (https://codepen.io/aaronvanston/pen/yNYOXR)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.-->
+<!--Copyright (c) 2020 by Erick A. Montañez (https://codepen.io/codeams/pen/IuGxn)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.--></html>
